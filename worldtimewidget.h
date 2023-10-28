@@ -48,6 +48,7 @@ public slots:
 
 signals:
     void RemoveRequest();
+    void AlertRequest();
 };
 
 class InfoWidget : public QWidget
