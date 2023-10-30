@@ -11,6 +11,7 @@
 #include <QMouseEvent>
 #include <QWindow>
 #include <QSizePolicy>
+#include <QMediaPlayer>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -129,6 +130,7 @@ void MainWindow::CreateNewWidget(QJsonObject ojb)
     UpdateLayout();
     connect(TrSyndTime,&QTimer::timeout,widget,&WorldTimeWidget::UpdateSyncDateTime);
     connect(widget,&WorldTimeWidget::RemoveRequest,this,&MainWindow::RemoveItemRequestHandel);
+    connect(widget,&WorldTimeWidget::AlertRequest,this,&MainWindow::PlayAlertSound,Qt::DirectConnection);
     widget->show();
 }
 
@@ -210,4 +212,14 @@ void MainWindow::on_ActionExit_triggered()
 void MainWindow::AddButton()
 {
     CreateNewWidget();
+}
+
+void MainWindow::PlayAlertSound()
+{
+    sender()->setProperty("AlertSoundIsRun",true);
+
+    QMediaPlayer player;
+    player.setMedia(QUrl::fromLocalFile(":/new/prefix1/alert_sound.wav"));
+    player.setVolume(50);
+    player.play();
 }

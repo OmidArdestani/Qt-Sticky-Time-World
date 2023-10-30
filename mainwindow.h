@@ -47,6 +47,7 @@ private slots:
     void ShowAllWidgets(QSystemTrayIcon::ActivationReason reson);
     void on_ActionExit_triggered();
     void AddButton();
+    void PlayAlertSound();
 };
 
 #endif // MAINWINDOW_H
