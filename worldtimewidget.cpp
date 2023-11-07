@@ -163,7 +163,7 @@ void WorldTimeWidget::UpdateSyncDateTime()
 {
     auto current_date_time = QDateTime::currentDateTimeUtc();
     auto date_time = current_date_time.toTimeZone(Impl->TimeZone);
-    ui->lblCurrentDate->setText(date_time.toString("dd-MM-yyyy"));
+    ui->lblCurrentDate->setText(date_time.toString("dddd dd-MM-yyyy"));
     ui->lblCurrentTime->setText(date_time.toString("HH:mm:ss"));
 
     if(Impl->MarketAlert)
