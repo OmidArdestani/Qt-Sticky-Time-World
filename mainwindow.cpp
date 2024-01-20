@@ -167,6 +167,7 @@ void MainWindow::closeEvent(QCloseEvent* e)
 void MainWindow::ActionAddWorldTimeWidgetTriggered()
 {
     CreateNewWidget();
+    SaveJsonBackup();
 }
 
 void MainWindow::OnExitAction()
@@ -188,6 +189,8 @@ void MainWindow::RemoveItemRequestHandel()
             item->deleteLater();
         }
     }
+
+    SaveJsonBackup();
 }
 
 void MainWindow::ShowAllWidgets(QSystemTrayIcon::ActivationReason reson)
@@ -212,6 +215,7 @@ void MainWindow::on_ActionExit_triggered()
 void MainWindow::AddButton()
 {
     CreateNewWidget();
+    SaveJsonBackup();
 }
 
 void MainWindow::PlayAlertSound()
@@ -219,7 +223,45 @@ void MainWindow::PlayAlertSound()
     sender()->setProperty("AlertSoundIsRun",true);
 
     QMediaPlayer player;
-    player.setMedia(QUrl::fromLocalFile(":/new/prefix1/alert_sound.wav"));
-    player.setVolume(50);
+    player.setSource(QUrl::fromLocalFile(":/new/prefix1/alert_sound.wav"));
+    // player.setVolume(50);
     player.play();
 }
+
+void MainWindow::on_actionAutoLayoutHorizotal_triggered()
+{
+    // Get the primary screen
+    QScreen *primaryScreen = QGuiApplication::primaryScreen();
+
+    // Get the screen geometry (screen size and position)
+    QRect screenGeometry = primaryScreen->geometry();
+
+    // Get the screen size
+    QSize screenSize = screenGeometry.size();
+
+    QPoint start_pos(10,10);
+    QPoint margin(10,10);
+
+    int index_x = 0;
+    int index_y = 0;
+    for(auto item = WidgetList.begin(); item != WidgetList.end(); ++item)
+    {
+        auto x_pos = start_pos.x() + (index_x * WorldTimeWidget::ItemSize.width()) + (index_x * margin.x());
+        auto setting_pos = start_pos + QPoint(x_pos, 0);
+
+        if(setting_pos.x() + WorldTimeWidget::ItemSize.width() > screenSize.width())
+        {
+            setting_pos.setX(start_pos.x());
+            setting_pos.setY(start_pos.y() + index_y * WorldTimeWidget::ItemSize.height() + margin.y());
+            index_x = 0;
+            index_y++;
+        }
+        else
+        {
+            index_x++;
+        }
+
+        (*item)->move(setting_pos);
+    }
+}
+

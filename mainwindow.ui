@@ -104,8 +104,8 @@
      <property name="title">
       <string>Auto Layout</string>
      </property>
-     <addaction name="actionHorizotal"/>
-     <addaction name="actionVertical"/>
+     <addaction name="actionAutoLayoutHorizotal"/>
+     <addaction name="actionAutoLayoutVertical"/>
     </widget>
     <addaction name="menuAuto_Layout"/>
    </widget>
@@ -131,12 +131,12 @@
     <string>Exit</string>
    </property>
   </action>
-  <action name="actionHorizotal">
+  <action name="actionAutoLayoutHorizotal">
    <property name="text">
     <string>Horizotal</string>
    </property>
   </action>
-  <action name="actionVertical">
+  <action name="actionAutoLayoutVertical">
    <property name="text">
     <string>Vertical</string>
    </property>

@@ -48,6 +48,7 @@ private slots:
     void on_ActionExit_triggered();
     void AddButton();
     void PlayAlertSound();
+    void on_actionAutoLayoutHorizotal_triggered();
 };
 
 #endif // MAINWINDOW_H
