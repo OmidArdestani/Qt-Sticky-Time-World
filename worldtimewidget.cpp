@@ -44,6 +44,10 @@ WorldTimeWidget::WorldTimeWidget() :
     QSizePolicy sp_retain = this->sizePolicy();
     sp_retain.setRetainSizeWhenHidden(false);
     this->setSizePolicy(sp_retain);
+
+    ui->lblMarketTimeRange->hide();
+    ui->cbOpenMarketAlert->hide();
+    this->setMaximumHeight(this->height() - 70);// 54px is for hiding label and checkbox and spacing.
 }
 
 WorldTimeWidget::~WorldTimeWidget()

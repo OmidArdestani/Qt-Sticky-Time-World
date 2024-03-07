@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>230</width>
-    <height>222</height>
+    <height>226</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -57,7 +57,7 @@
        <number>0</number>
       </property>
       <property name="bottomMargin">
-       <number>0</number>
+       <number>10</number>
       </property>
       <item>
        <widget class="QLabel" name="lblCountry">
@@ -97,7 +97,6 @@
          <font>
           <family>Bahnschrift SemiLight</family>
           <pointsize>28</pointsize>
-          <weight>50</weight>
           <bold>false</bold>
          </font>
         </property>
@@ -115,7 +114,6 @@
          <font>
           <family>Bahnschrift SemiLight</family>
           <pointsize>12</pointsize>
-          <weight>50</weight>
           <bold>false</bold>
          </font>
         </property>
@@ -168,7 +166,6 @@
             <font>
              <family>Bahnschrift SemiLight</family>
              <pointsize>10</pointsize>
-             <weight>50</weight>
              <bold>false</bold>
             </font>
            </property>
@@ -178,7 +175,7 @@
           </widget>
          </item>
          <item row="3" column="0" colspan="2">
-          <widget class="QLabel" name="label_4">
+          <widget class="QLabel" name="lblMarketTimeRange">
            <property name="text">
             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Market Time: &lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;[9:00AM - 5:00PM]&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
@@ -201,24 +198,6 @@
            </property>
           </widget>
          </item>
-        </layout>
-       </widget>
-      </item>
-      <item>
-       <widget class="QWidget" name="widget_3" native="true">
-        <layout class="QVBoxLayout" name="verticalLayout_2">
-         <property name="leftMargin">
-          <number>10</number>
-         </property>
-         <property name="topMargin">
-          <number>0</number>
-         </property>
-         <property name="rightMargin">
-          <number>10</number>
-         </property>
-         <property name="bottomMargin">
-          <number>0</number>
-         </property>
         </layout>
        </widget>
       </item>
